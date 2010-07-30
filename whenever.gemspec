@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{insrc-whenever}
-  s.version = "0.5.0"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["IN SRC Studio"]
+  s.authors = ["IN-SRC Studio"]
   s.date = %q{2010-07-30}
-  s.description = %q{Clean ruby syntax for defining and deploying messy cron jobs.}
+  s.description = %q{Clean ruby syntax for defining and deploying messy cron jobs. Support cron raw syntex.}
   s.email = %q{elanmeng@in-src.com}
   s.executables = ["whenever", "wheneverize"]
   s.extra_rdoc_files = [
