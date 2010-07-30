@@ -199,6 +199,12 @@ class CronTest < Test::Unit::TestCase
       end
     end
   end
+  
+  context "When parsing time using raw syntex" do
+    should "return a raw syntex cron format" do
+      assert_equal '*/2 9-15 * * 1-5',   parse_time("*/2 9-15 * * 1-5", nil, nil, true)
+    end    
+  end
 
 private
 
@@ -219,8 +225,8 @@ private
     assert_equal expected, cron.split(' ')[0]
   end
 
-  def parse_time(time = nil, task = nil, at = nil)
-    Whenever::Output::Cron.new(time, task, at).time_in_cron_syntax
+  def parse_time(time = nil, task = nil, at = nil, raw_syntex = false)
+    Whenever::Output::Cron.new(time, task, at, nil, raw_syntex).time_in_cron_syntax
   end
 
 end

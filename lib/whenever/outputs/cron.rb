@@ -5,11 +5,12 @@ module Whenever
 
       attr_accessor :time, :task
 
-      def initialize(time = nil, task = nil, at = nil, output_redirection = nil)
+      def initialize(time = nil, task = nil, at = nil, output_redirection = nil, raw_syntex = false)
         @time = time
         @task = task
         @at   = at.is_a?(String) ? (Chronic.parse(at) || 0) : (at || 0)
         @output_redirection = output_redirection
+        @raw_syntex = raw_syntex
       end
 
       def self.enumerate(item)
@@ -25,7 +26,7 @@ module Whenever
       def self.output(times, job)
         enumerate(times).each do |time|
           enumerate(job.at).each do |at|
-            yield new(time, job.output, at, job.output_redirection).output
+            yield new(time, job.output, at, job.output_redirection, job.raw_syntex).output
           end
         end
       end
@@ -35,10 +36,14 @@ module Whenever
       end
 
       def time_in_cron_syntax
-        case @time
-          when Symbol then parse_symbol
-          when String then parse_as_string
-          else parse_time
+        if @raw_syntex
+          @time
+        else
+          case @time
+            when Symbol then parse_symbol
+            when String then parse_as_string
+            else parse_time
+          end
         end
       end
       

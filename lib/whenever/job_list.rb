@@ -42,6 +42,12 @@ module Whenever
       yield
     end
     
+    def cron(frequency, options = {})
+      @current_time_scope = frequency
+      @options = options.merge(:raw_syntex => true)
+      yield
+    end    
+    
     def job_type(name, template)
       class_eval do
         define_method(name) do |task, *args|

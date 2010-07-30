@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{whenever}
+  s.name = %q{insrc-whenever}
   s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Javan Makhmali"]
-  s.date = %q{2010-06-28}
+  s.authors = ["IN SRC Studio"]
+  s.date = %q{2010-07-30}
   s.description = %q{Clean ruby syntax for defining and deploying messy cron jobs.}
-  s.email = %q{javan@javan.us}
+  s.email = %q{elanmeng@in-src.com}
   s.executables = ["whenever", "wheneverize"]
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
      "test/test_helper.rb",
      "whenever.gemspec"
   ]
-  s.homepage = %q{http://github.com/javan/whenever}
+  s.homepage = %q{http://github.com/dreamwords/whenever}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}

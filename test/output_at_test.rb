@@ -234,4 +234,19 @@ class OutputAtTest < Test::Unit::TestCase
       assert_match '27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * * blahblah', @output
     end
   end
+  
+  context "cron raw syntext" do
+    setup do
+      @output = Whenever.cron \
+      <<-file
+        cron "*/2 9-15 * * 1-5" do
+          command "blahblah"
+        end
+      file
+    end
+    
+    should "output the command using that time" do
+      assert_match '*/2 9-15 * * 1-5 blahblah', @output
+    end
+  end
 end
